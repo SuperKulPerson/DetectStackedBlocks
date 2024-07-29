@@ -8,6 +8,6 @@ A list of all the stacked blocks will be printed into the console and written to
 
 
 ## Dependencies
-- Python 3.7-3.11 (Should work on 3.12 if python-lzo installs)
+- Python 3.7-3.11 (Should work on 3.12 if python-lzo installs for pygbx)
 - pygbx
 - tqdm
