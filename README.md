@@ -3,7 +3,7 @@ A python script that checks the position of every block against every other bloc
 
 ![example](https://github.com/user-attachments/assets/34118635-3d25-40a0-8a5c-ce2cdb8c5c4f)
 
-Only tested on TMNF maps, but I don't see why it won't work on TMUF maps as well.
+Only tested on TMNF maps, but I don't see why it wouldn't work on TMUF maps as well.
 
 ## Usage
 Just drop a Challenge.Gbx file into the console and press enter.<br>
