@@ -3,7 +3,7 @@ A python script that checks the position of every block against every other bloc
 
 
 ## Usage
-Just drop a Challenge.Gbx file into the console and press enter.
+Just drop a Challenge.Gbx file into the console and press enter. 
 A list of all the stacked blocks will be printed into the console and written to a file.
 
 
