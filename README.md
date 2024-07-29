@@ -1,6 +1,13 @@
 # DetectStackedBlocks
-A python script for TMF to detect stacked blocks
+A python script that checks the position of every block against every other block to detect if they are stacked.
 
 
-## Requirements
-- Python 3.7-3.11 (Should work on 3.12 if python-lzo installs) IM GOING TO BED NOW!! BYE
+## Usage
+Just drop a Challenge.Gbx file into the console and press enter.
+A list of all the stacked blocks will be printed into the console and written to a file.
+
+
+## Dependencies
+- Python 3.7-3.11 (Should work on 3.12 if python-lzo installs)
+- pygbx
+- tqdm
