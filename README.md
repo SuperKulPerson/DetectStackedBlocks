@@ -1,7 +1,7 @@
 # DetectStackedBlocks
 A python script that checks the position of every block against every other block to detect if they are stacked.
 
-![example](https://github.com/user-attachments/assets/34118635-3d25-40a0-8a5c-ce2cdb8c5c4f)
+![example](https://github.com/user-attachments/assets/048d10ac-52a1-430b-9fb3-a9d4ba83f96e)
 
 Only tested on TMNF maps, but I don't see why it wouldn't work on TMUF maps as well.
 
