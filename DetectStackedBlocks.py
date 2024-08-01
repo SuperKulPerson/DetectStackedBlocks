@@ -15,8 +15,8 @@ default_config = {
 
 	"filterBlocks": [
 		"StadiumWaterClip",
- 		"StadiumGrassClip",
- 		"StadiumDirtClip",
+		"StadiumGrassClip",
+		"StadiumDirtClip",
 		"StadiumDirt",
 		"StadiumDirtHill",
 		"StadiumDirtBorder",
@@ -48,10 +48,10 @@ def load_config():
 	checkFlags = config.get('checkFlags', True)
 	convertFlags = config.get('convertFlags', 2)
 	minimumStack = config.get('minimumStack', 2)
-
+	
 	filterEnabled = config.get('filterEnabled', True)
 	filterBlocks = config.get('filterBlocks', [])
-
+	
 	configMinLen = 21 # Raise this number if a config is too long and it no longer aligns.
 	
 	configInfo = f"""\033[96m#-Config-#\033[0m
@@ -70,11 +70,11 @@ def load_config():
 			print(f"- {name}")
 	else:
 		print("- None")
-
+	
 	print(f"""\n\n\033[96m#-Commands-#\033[0m
 reload  | Reloads config.json.
 default | Sets config.json to default and reloads it.
-	   """)
+""")
 
 
 def condition(curName, Name, curPos, Pos, curRot, Rot, curFlags, Flags):
@@ -100,12 +100,12 @@ def flag_to_var(flags):
 		ground = "Ground" if (flags // 0x1000 % 0x2) else "Air"
 		clip = " Clip" if (flags // 0x2000 % 0x2) else ""
 		pillar = " Pillar" if (flags // 0x4000 % 0x2) else ""
-
+		
 		noMobil = ""
 		if variant > 14 or 63 >= variation > 6 or (variation == 64 and not clip) or (clip and pillar):
 			noMobil = f", \033[95mNO MOBIL\033[0m ({hex(flags).upper()})"
-			
-		return f"Variant: {variant}, Variation:{variation}, Type: {ground}{clip}{pillar}{noMobil}"
+		
+		return f"Variant: {variant}, Variation: {variation}, Type: {ground}{clip}{pillar}{noMobil}"
 	
 	elif convertFlags == 1: # TrackStudio vars
 		return f"Vars: ({flags % 0x100}, {flags // 0x100 % 0x100}, {flags // 0x10000 % 0x100}, {flags // 0x1000000})"
@@ -175,15 +175,15 @@ def start():
 					print("\033[91mNot a Challenge.Gbx file. Example of a correct file: \033[92mA01-Race.Challenge.Gbx\033[0m")
 					start()
 				print(f"Map Name: {challenge.map_name}\nFile: {mapFile}")
-
+				
 				stackedBlocks, stackAmountTotal, stackGroups = find_stacked(challenge)
-
+				
 				if stackedBlocks:
 					for block in stackedBlocks:
 						print(block)
-
+					
 					mapFileName = os.path.splitext(os.path.basename(mapFile))[0].split('.')[0]
-
+					
 					with open(f"{mapFileName}.txt", 'w') as file:
 						try:
 							file.write(f"Map Name: {challenge.map_name}\nMap File: {mapFile}\nBlocks Searched: ({len(challenge.blocks)})\n")
@@ -209,7 +209,7 @@ def start():
 			start()
 	else:
 		start()
-	
+
 
 def ansi_filter(text): # Removes ANSI codes
 	return re.compile(r'\033[c]|'r'\033\[[0-9;]*m').sub('', text)
@@ -220,18 +220,18 @@ def align(text, minLen): # Adds spaces to align text
 
 
 if __name__ == "__main__":
-
-	version = "v1.0.0"
-	date = "29.07.2024"
-
+	
+	version = "v1.0.1"
+	date = "01.08.2024"
+	
 	configName = "config.json"
-
+	
 	load_config()
-
+	
 	patterns = [ # Symbols to remove from input
 		("& '", "'"),	# For VSCode Console
 		('"', '"'),		# For Powershell
 		("'", "'")		# Just in case
 	]
-
+	
 	start()
